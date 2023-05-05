@@ -31,3 +31,15 @@ FROM
 SELECT COUNT(DISTINCT ColorName)
 FROM DimProduct
 
+-- maior e menor preco dos produtos
+
+SELECT MAX(UnitPrice) AS 'Custo Maximo',
+    MIN(UnitPrice) AS 'Custo Minimo'
+FROM DimProduct
+
+-- media de salario dos clientes
+
+SELECT
+    AVG(YearlyIncome) AS 'MediaRendaAnual'
+FROM DimCustomer
+
