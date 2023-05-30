@@ -19,3 +19,30 @@ GROUP BY DCh.ChannelName
 ORDER BY QtdVendida DESC;
 
 -- Exemplo de INNER JOIN, LEFT JOIN e RIGHT JOIN
+
+SELECT DP.ProductKey,
+    DP.ProductName,
+    DP.ProductSubcategoryKey,
+    DPS.ProductSubcategoryName
+FROM DimProduct DP
+INNER JOIN DimProductSubcategory DPS
+    ON DP.ProductSubcategoryKey = DPS.ProductSubcategoryKey;
+
+SELECT DP.ProductKey,
+    DP.ProductName,
+    DP.ProductSubcategoryKey,
+    DPS.ProductSubcategoryName
+FROM DimProduct DP
+LEFT JOIN DimProductSubcategory DPS
+    ON DP.ProductSubcategoryKey = DPS.ProductSubcategoryKey;
+
+-- Quando o inner join e o left join dao o mesmo resultado, no caso acima
+-- todos os produtos estao associados a uma subcategoria de produto
+
+SELECT DP.ProductKey,
+    DP.ProductName,
+    DP.ProductSubcategoryKey,
+    DPS.ProductSubcategoryName
+FROM DimProduct DP
+RIGHT JOIN DimProductSubcategory DPS
+    ON DP.ProductSubcategoryKey = DPS.ProductSubcategoryKey;
