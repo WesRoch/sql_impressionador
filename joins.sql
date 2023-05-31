@@ -158,6 +158,15 @@ LEFT JOIN DimProduct DimP
     ON DimPS.ProductSubcategoryKey = DimP.ProductSubcategoryKey
 WHERE DimP.ProductName IS NULL;
 
+-- Usando o RIGHT JOIN
+SELECT DimPS.ProductSubcategoryKey,
+    DimPS.ProductSubcategoryName,
+    DimP.ProductName
+FROM DimProduct DimP
+RIGHT JOIN DimProductSubcategory DimPS
+    ON DimPS.ProductSubcategoryKey = DimP.ProductSubcategoryKey
+WHERE DimP.ProductName IS NULL;
+
 --08
 SELECT DISTINCT DimP.BrandName,
     DimCh.ChannelName
@@ -167,6 +176,13 @@ INNER JOIN FactSales FtS
 INNER JOIN DimChannel DimCh
     ON FtS.channelKey = DimCh.ChannelKey
 WHERE BrandName IN ('Contoso', 'Fabrikam', 'Litware');
+
+--USANDO O CROSS JOIN
+SELECT DISTINCT BrandName,
+    ChannelName
+FROM DimProduct
+CROSS JOIN DimChannel
+WHERE BrandName IN('Contoso', 'Fabrikam', 'Litware');
 
 --09
 SELECT FtOs.OnlineSalesKey,
