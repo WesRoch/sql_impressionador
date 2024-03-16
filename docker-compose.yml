@@ -1,0 +1,22 @@
+version: '3.8'
+services:
+  sql-server:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: contosoretaildw_sqlserver
+    ports:
+      - "1401:1433"
+    environment:
+      ACCEPT_EULA: Y
+      SA_PASSWORD: Contosoretaildw!2024
+    volumes:
+      - sql1data:/var/opt/mssql
+    networks:
+      - sqlservernetwork
+
+volumes:
+  sql1data:
+    external: true
+
+networks:
+  sqlservernetwork:
+    external: true
