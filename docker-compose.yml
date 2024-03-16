@@ -13,6 +13,16 @@ services:
     networks:
       - sqlservernetwork
 
+# web interface for sql server
+  adminer:
+    image: adminer
+    container_name: contosoretaildw_adminer
+    ports:
+      - "8080:8080"
+    networks:
+      - sqlservernetwork
+
+# external volumes
 volumes:
   sql1data:
     external: true
